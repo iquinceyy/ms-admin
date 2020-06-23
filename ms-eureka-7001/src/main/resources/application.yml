@@ -1,0 +1,38 @@
+eureka:
+  instance:
+    hostname: localhost   #  \u4E3B\u673Ahost
+  client:
+    # \u5F53\u524D\u7684eureka\u670D\u52A1\u662F\u5355\u673A\u7248\u7684
+    registerWithEureka: false   #不向eureka注册自己，自身就是注册中心
+    fetchRegistry: false  #     不向注册中心获取信息，因为自身就是注册中心
+spring:
+  profiles:
+    active:  eureka-7001
+---
+
+server:
+  port: 7001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-7002:7002/eureka/,http://eureka-7003:7003/eureka/  #向另外的注册自己
+spring:
+  profiles: eureka-7001
+---
+spring:
+  profiles: eureka-7002
+server:
+  port: 7002
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-7001:7001/eureka/,http://eureka-7003:7003/eureka/
+---
+spring:
+  profiles: eureka-7003
+server:
+  port: 7003
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-7001:7001/eureka/,http://eureka-7002:7002/eureka/

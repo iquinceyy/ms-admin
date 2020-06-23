@@ -1,0 +1,28 @@
+eureka:
+  instance:
+    hostname: localhost   #  主机host
+  client:
+    # 当前的eureka服务是单机版的
+    service-url:
+      defaultZone: http://eureka-7001:7001/eureka/,http://eureka-7002:7002/eureka/,http://eureka-7003:7003/eureka/
+spring:
+  application:
+    name: user-rest-service  #配置自身微服务的名称：这个名称就非常关键了。是eureka做负载均衡的依据
+  profiles:
+    active: pro1
+---
+spring:
+  profiles: pro1
+server:
+  port: 8001
+
+---
+spring:
+  profiles: pro2
+server:
+  port: 8002
+---
+spring:
+  profiles: pro3
+server:
+  port: 8003
