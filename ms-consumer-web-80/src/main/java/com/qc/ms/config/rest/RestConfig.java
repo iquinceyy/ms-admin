@@ -1,5 +1,6 @@
 package com.qc.ms.config.rest;
 
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +15,7 @@ import org.springframework.web.util.DefaultUriBuilderFactory;
 public class RestConfig {
 
     @Bean
+    @LoadBalanced//负载均衡
     RestTemplate restTemplate() {// 这里如果路径之中由 findUserByQuery?参数名=参数值&参数名2=h5%2abc
         // 还需要配置！！不需要 转 参数路径字符串
         RestTemplate restTemplate = new RestTemplate();

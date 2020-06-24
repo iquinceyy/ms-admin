@@ -7,6 +7,8 @@
         <module>ms-provider-user-8001</module>
         <module>ms-consumer-web-80</module>
         <module>ms-eureka-7001</module>
+        <module>ms-pojo</module>
+        <module>ms-security</module>
     </modules>
 
     <parent>
@@ -14,6 +16,8 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.1.RELEASE</version>
     </parent>
+
+
 
     <groupId>com.qc</groupId>
     <artifactId>ms-admin</artifactId>
@@ -28,6 +32,17 @@
     <dependencyManagement>
         <dependencies>
 
+            <dependency>
+                <groupId>com.qc</groupId>
+                <artifactId>ms-pojo</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.qc</groupId>
+                <artifactId>ms-security</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -35,6 +50,13 @@
                 <version>Hoxton.SR5</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.12</version>
+                <scope>provided</scope>
             </dependency>
 
         </dependencies>

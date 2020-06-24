@@ -6,9 +6,14 @@ eureka:
   client:
     # \u5F53\u524D\u7684eureka\u670D\u52A1\u662F\u5355\u673A\u7248\u7684
     service-url:
-      defaultZone: http://eureka-7001:7001/eureka/,http://eureka-7002:7002/eureka/,http://eureka-7003:7003/eureka/
+      #defaultZone: http://eureka-7001:7001/eureka/,http://eureka-7002:7002/eureka/,http://eureka-7003:7003/eureka/
+      defaultZone: http://eureka-7001:7001/eureka/
     register-with-eureka: false
     fetch-registry: true
 spring:
   application:
     name: ms-consumer-web  #   微服务的名字
+# ribbon设置超时
+feign:
+  hystrix:
+    enabled: true  #手动开启服务降级处理操作
