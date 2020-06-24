@@ -31,6 +31,7 @@ public class UserController {
     @Resource
     EurekaClient eurekaClient;
 
+
     //@Resource
     //DiscoveryClient discoveryClient; 需要主启动加注解和依赖
 
