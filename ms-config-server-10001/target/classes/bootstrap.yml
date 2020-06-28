@@ -1,0 +1,16 @@
+server:
+  port: 10001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://qianfeng:java@eureka-7001:7001/eureka/
+spring:
+  application:
+    name: ms-config-server  #配置自身微服务的名称：这个名称就非常关键了。是eureka做负载均衡的依据
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lihangjj/config-server  #仓库的地址
+          username: 237377116@qq.com
+          password: 151001lhaijj13

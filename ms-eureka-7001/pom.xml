@@ -22,9 +22,18 @@
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
 
+<!--        添加后，被拦截出现登录界面-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+<!--自定义拦截器-->
+<!--        <dependency>-->
+<!--            <groupId>com.qc</groupId>-->
+<!--            <artifactId>ms-security</artifactId>-->
+<!--        </dependency>-->
+
     </dependencies>
-
-
     <build>
         <plugins>
             <plugin>
@@ -33,5 +42,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

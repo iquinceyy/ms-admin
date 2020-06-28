@@ -1,0 +1,16 @@
+server:
+  port: 8010
+eureka:
+  client:
+    service-url:
+      defaultZone: http://qianfeng:java@eureka-7001:7001/eureka/
+    register-with-eureka: false
+    fetch-registry: true
+spring:
+  application:
+    name: ms-consumer-web1  #   微服务的名字（会被远程仓库的配置文件所覆盖。可以设置覆盖的策略。）
+  cloud:
+    config:
+      discovery:
+        service-id: ms-config-server  #指向配置文件服务器的名字。
+        enabled: true #开启可以从配置服务器获取配置信息

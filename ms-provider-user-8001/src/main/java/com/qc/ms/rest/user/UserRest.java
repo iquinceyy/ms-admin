@@ -7,10 +7,7 @@ import com.netflix.hystrix.contrib.javanica.conf.HystrixPropertiesManager;
 import com.qc.ms.pojo.entity.User;
 import com.qc.ms.pojo.query.UserQuery;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +29,7 @@ public class UserRest {
 //    execution.isolation.thread.timeoutInMilliseconds
     @RequestMapping("/findUserById/{id}")
     @HystrixCommand(fallbackMethod = "findUserByIdBackup",
-            commandProperties = {@HystrixProperty(name =HystrixPropertiesManager.EXECUTION_ISOLATION_THREAD_INTERRUPT_ON_TIMEOUT, value = "30000")})
+            commandProperties = {@HystrixProperty(name =HystrixPropertiesManager.EXECUTION_ISOLATION_THREAD_INTERRUPT_ON_TIMEOUT, value = "3000")})
     User findUserById(@PathVariable Long id){
 //        System.err.println((1 / 0));
 //        try {
@@ -69,6 +66,11 @@ public class UserRest {
 
         list.add(user);
         return list;
+    }
+    @RequestMapping("/listUsers")
+    List<User> listUsers( String name, Long userId) {
+        System.err.println("1234556");
+        return null;
     }
 
 }

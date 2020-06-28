@@ -1,0 +1,18 @@
+server:
+  port: 9001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://qianfeng:java@eureka-7001:7001/eureka/
+spring:
+  application:
+    name: ms-zuul-service  #配置自身微服务的名称：这个名称就非常关键了。是eureka做负载均衡的依据
+zuul:
+  routes:
+    #   的范围反对: #唯一标识
+    #  path: /user/**
+    #  service-id: user-rest-service
+    user-rest-service: /user/** #当从网关访问/user/**路径时候，就会映射到 user-rest-service微服务上去/
+    #good-rest-service: /goods/**
+  sensitive-headers: "*" #忽略掉所有的敏感头信息。
+  ignored-services: "*"  #忽略微服务本身的名字，这样做到隐藏微服务本身的名字。。。我们给前端的时候，就只需要给代理路径即可（/user/**）

@@ -4,13 +4,29 @@ eureka:
   client:
     # 当前的eureka服务是单机版的
     service-url:
-#      defaultZone: http://eureka-7001:7001/eureka/,http://eureka-7002:7002/eureka/,http://eureka-7003:7003/eureka/
-      defaultZone: http://eureka-7001:7001/eureka/
+      #defaultZone: http://eureka-7001:7001/eureka/,http://eureka-7002:7002/eureka/,http://eureka-7003:7003/eureka/
+      #defaultZone: http://eureka-7001:7001/eureka/
+      defaultZone: http://qianfeng:java@eureka-7001:7001/eureka/
 spring:
   application:
     name: user-rest-service  #配置自身微服务的名称：这个名称就非常关键了。是eureka做负载均衡的依据
   profiles:
     active: pro1
+  security:
+    user:
+      name: qianfeng
+      password: java
+  zipkin:
+    base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      probability: 1  #(范围是0-1) 指的是收集数据的比例
+  cloud:
+    config:
+      discovery:
+        service-id: ms-config-server  #指向配置文件服务器的名字。
+
+
 ---
 spring:
   profiles: pro1
@@ -27,3 +43,4 @@ spring:
   profiles: pro3
 server:
   port: 8003
+

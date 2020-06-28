@@ -8,6 +8,11 @@ eureka:
 spring:
   profiles:
     active:  eureka-7001
+  # 指定用户名和密码
+  security:
+    user:
+      name: qianfeng
+      password: java
 ---
 
 server:

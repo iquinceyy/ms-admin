@@ -63,9 +63,10 @@ public class UserController {
         // 【面试重点】hystrix做熔断和服务降级
 
         // 【实操重点】feign（就包含ribbon,包含hystrix） 技术：就是一种把http（封装成接口）的技术。去访问一个http请求的时候，直接调用接口即可。(实际工作中会用的方式)
+        userServiceFeign.listUsers("张三",1111L);
+
+
         Object forObject = userServiceFeign.findUserById(id);
-
-
 
         UserQuery userQuery = new UserQuery();
         userQuery.setName("张三");
@@ -74,8 +75,6 @@ public class UserController {
         List<User> userList = userServiceFeign.listUser(userQuery);
         System.out.println(userList);
         return forObject;
-
-
 
     }
 }

@@ -9,6 +9,8 @@
         <module>ms-eureka-7001</module>
         <module>ms-pojo</module>
         <module>ms-security</module>
+        <module>ms-zuul-9001</module>
+        <module>ms-config-server-10001</module>
     </modules>
 
     <parent>

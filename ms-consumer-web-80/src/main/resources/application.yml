@@ -1,18 +1,29 @@
+#server:
+#  port: 80
 server:
-  port: 80
+  port: 8011
 eureka:
   instance:
     hostname: localhost   #  \u4E3B\u673Ahost
   client:
-    # \u5F53\u524D\u7684eureka\u670D\u52A1\u662F\u5355\u673A\u7248\u7684
     service-url:
       #defaultZone: http://eureka-7001:7001/eureka/,http://eureka-7002:7002/eureka/,http://eureka-7003:7003/eureka/
-      defaultZone: http://eureka-7001:7001/eureka/
+      #defaultZone: http://eureka-7001:7001/eureka/
+      defaultZone: http://qianfeng:java@eureka-7001:7001/eureka/
     register-with-eureka: false
     fetch-registry: true
 spring:
   application:
-    name: ms-consumer-web  #   微服务的名字
+    name: ms-consumer-web2  #   微服务的名字
+  zipkin:
+    base-url: http://localhost:9411/
+    sleuth:
+      sampler:
+        probability: 1  #(范围是0-1) 指的是收集数据的比例
+    cloud:
+      config:
+        discovery:
+          service-id: ms-config-server  #指向配置文件服务器的名字。
 # ribbon设置超时
 feign:
   hystrix:
