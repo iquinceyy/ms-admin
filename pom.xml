@@ -21,6 +21,7 @@
         <module>ms-provider-goods-8002</module>
         <module>redis-config</module>
         <module>ms-sharding-jdbc</module>
+        <module>ms-lcn-server</module>
     </modules>
 
     <parent>
