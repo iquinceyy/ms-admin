@@ -21,6 +21,10 @@
     <dependencies>
         <dependency>
             <groupId>com.qc</groupId>
+            <artifactId>ms-FastDFS</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.qc</groupId>
             <artifactId>ms-pojo</artifactId>
         </dependency>
 

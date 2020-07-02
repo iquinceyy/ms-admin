@@ -1,6 +1,8 @@
 package com.qc.ms.service.impl;
 
+import com.qc.ms.config.rabbitmq.DirectExchangeConfig;
 import com.qc.ms.config.rabbitmq.FanoutExchangeConfig;
+import com.qc.ms.config.rabbitmq.TopicExchangeConfig;
 import com.qc.ms.pojo.entity.User;
 import com.qc.ms.service.ListenerService;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -50,7 +52,6 @@ public class ListenerServiceImpl implements ListenerService {
 //        }
 
     }
-/*
     // 自动负载均衡:监听同一个队列的时候，自动把消息 负载均衡的去给每一个 监听器消费（幂等性）
     @RabbitListener(queues = {DirectExchangeConfig.QIANFENG_JAVA_QUEUE_3})// 监听三队列
     public void suiyi3(String name) {
@@ -92,6 +93,6 @@ public class ListenerServiceImpl implements ListenerService {
     public void topic7(String name) {
         System.err.println("topic7" + name);// 只要业务层不报错，就默认你收到消息了
         // 接收到user之后，就应该根据user处理业务
-    }*/
+    }
 
 }

@@ -14,6 +14,13 @@
         <module>ms-rabbitmq</module>
         <module>ms-mq-listener</module>
         <module>ms-mq-test</module>
+        <module>ms-FastDFS</module>
+        <module>ms-provider-order-8003</module>
+        <module>ms-zookeeper</module>
+        <module>ms-elasticsearch</module>
+        <module>ms-provider-goods-8002</module>
+        <module>redis-config</module>
+        <module>ms-sharding-jdbc</module>
     </modules>
 
     <parent>
@@ -36,6 +43,12 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>com.qc</groupId>
+                <artifactId>ms-FastDFS</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
             <dependency>
                 <groupId>com.qc</groupId>
                 <artifactId>ms-rabbitmq</artifactId>

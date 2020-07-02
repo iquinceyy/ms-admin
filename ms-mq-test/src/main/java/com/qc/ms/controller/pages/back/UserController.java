@@ -22,4 +22,15 @@ public class UserController {
     Object registerUser(@PathVariable String name){
         return userService.registerUser(name);
     }
+
+    @RequestMapping("/routingKey/{name}")
+    Object testSendRoutingKey(@PathVariable String name) {
+        return userService.testSendRoutingKey(name);
+    }
+
+
+    @RequestMapping("/testSendTopic/{name}")
+    Object testSendTopic(@PathVariable String name) {
+        return userService.testSendTopic(name);
+    }
 }

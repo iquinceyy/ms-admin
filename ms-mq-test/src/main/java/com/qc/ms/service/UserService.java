@@ -8,4 +8,8 @@ package com.qc.ms.service;
 
 public interface UserService {
     Object registerUser(String name);
+
+    Object testSendRoutingKey(String name);
+
+    Object testSendTopic(String name);
 }

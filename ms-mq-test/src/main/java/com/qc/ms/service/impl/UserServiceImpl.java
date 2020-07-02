@@ -1,6 +1,8 @@
 package com.qc.ms.service.impl;
 
+import com.qc.ms.config.rabbitmq.DirectExchangeConfig;
 import com.qc.ms.config.rabbitmq.FanoutExchangeConfig;
+import com.qc.ms.config.rabbitmq.TopicExchangeConfig;
 import com.qc.ms.pojo.entity.User;
 import com.qc.ms.service.UserService;
 import org.springframework.amqp.core.FanoutExchange;
@@ -29,6 +31,23 @@ public class UserServiceImpl implements UserService {
         u.setUserId(99L);
         CorrelationData correlationData =new CorrelationData(u.getUserId().toString());
         rabbitTemplate.convertAndSend(FanoutExchangeConfig.QIANFENG_JAVA_FANOUT_EXCHANGE,"null",u,correlationData);
+        return "ok";
+    }
+
+    @Override
+    public Object testSendRoutingKey(String name) {
+
+        for (int i = 0; i < 10; i++) {
+            rabbitTemplate.convertAndSend(DirectExchangeConfig.QIANFENG_JAVA_DIRECT_EXCHANGE, DirectExchangeConfig.QIANFENG_JAVA_ROUTINGKEY_3, name + i);
+        }
+        return "ok";
+    }
+
+    @Override
+    public Object testSendTopic(String name) {
+        for (int i = 0; i < 10; i++) {
+            rabbitTemplate.convertAndSend(TopicExchangeConfig.QIANFENG_JAVA_TOPIC_EXCHANGE, "qianfeng.#", name + i);
+        }
         return "ok";
     }
 }

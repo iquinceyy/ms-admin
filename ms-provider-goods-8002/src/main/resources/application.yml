@@ -1,0 +1,10 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: goods-rest-service-qc  #配置自身微服务的名称：这个名称就非常关键了。是eureka做负载均衡的依据
+  cloud:
+    zookeeper:
+      connect-string: 120.27.92.110:2181,120.27.92.110:2182,120.27.92.110:2183
+
+

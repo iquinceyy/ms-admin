@@ -1,0 +1,22 @@
+#server:
+#  port: 8003
+#spring:
+#  application:
+#    name: order-rest-qc  #配置自身微服务的名称：这个名称就非常关键了。是zookeeper中的名字
+#  cloud:
+#    zookeeper:
+#      connect-string: 120.25.223.121:2181,120.25.223.121:2182,120.25.223.121:2183 #也是逗号拆分
+server:
+  port: 8003
+spring:
+  application:
+    name: order-rest-qc  #配置自身微服务的名称：这个名称就非常关键了。是zookeeper中的名字
+  cloud:
+    zookeeper:
+      # connect-string: 120.25.223.121:2181,120.25.223.121:2182,120.25.223.121:2183 #也是逗号拆分
+#      connect-string: 120.27.92.110:2181
+      connect-string: 47.93.237.213:2181
+
+
+
+
